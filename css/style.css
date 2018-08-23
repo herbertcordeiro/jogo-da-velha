@@ -9,7 +9,7 @@
   grid-area: header;
 }
 
-.titleturn{
+.titleturn {
   text-align: center;
   color: var(--white);
 }
@@ -25,8 +25,8 @@
 .player-1 {
   grid-area: p1;
   color: var(--white);
-  width: 240px;
-  height: 50px;
+  width: 210px;
+  height: 40px;
   background-color: var(--light-gray);
   border-bottom: var(--border-secondary) var(--red);
   justify-self: end;
@@ -35,44 +35,54 @@
 .player-2 {
   grid-area: p2;
   color: var(--white);
-  width: 240px;
-  height: 50px;
+  width: 210px;
+  height: 40px;
   background-color: var(--light-gray);
   border-bottom: var(--border-secondary) var(--white);
 }
 
 .iconplayer {
-  height: 30px;
+  height: 20px;
   padding: 10px;
   background-color: var(--light-gray);
 }
 
-.scoreboard{
+.scoreboard {
   text-align: right;
   font-size: 1em;
   color: var(--white);
 }
 
+.imgborder {
+  height: 80px;
+}
+
 .board {
   grid-area: main;
-  width: 500px;
+  width: 410px;
   margin-top: 20px;
   justify-self: center;
 }
 
+.imgreset {
+  padding: 10px;
+  width: 35px;
+}
+
 .partborder {
-  width: 160px;
-  height: 130px;
+  width: 130px;
+  height: 100px;
   float: left;
   padding-top: 30px;
   text-align: center;
 }
 
 .name,
+.winner,
 .reset {
   text-align: center;
   font-size: 1em;
-  padding: 50px;
+  padding: 20px;
   color: var(--white);
 }
 

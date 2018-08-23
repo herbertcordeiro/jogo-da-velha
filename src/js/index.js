@@ -16,26 +16,29 @@ function refreshScreen() {
     }
 }
 
+
 function initGame() {
-    var space = document.getElementsByClassName("partborder");
-    for (var i = 0; i < space.length; i++) {
-        space[i].addEventListener("click", function checkPlay() {
+    var partborders = document.getElementsByClassName("partborder");
+    for (var i = 0; i < partborders.length; i++) {
+        partborders[i].addEventListener("click", function () {
             if (gamerOver) {
                 return;
             }
-            if (this.getElementsByTagName("img").length == 0) {
-
-                if (playerTime == playerOne) {
-                    this.innerHTML = "<img src='assets/img/xis.png' height='100px'>";
-                    this.setAttribute("played", playerOne);
-                    playerTime = playerTwo;
-                } else {
-                    this.innerHTML = "<img src='assets/img/bola.png' height='100px'>";
-                    this.setAttribute("played", playerTwo);
-                    playerTime = playerOne;
+            if (this.getElementsByTagName("img")) {
+                console.log(this);
+                if (this.childNodes[1].getAttribute("src") == "") {
+                    if (playerTime == playerOne) {
+                        this.childNodes[1].setAttribute("src", "assets/img/xis.png");
+                        this.setAttribute("played", playerOne);
+                        playerTime = playerTwo;
+                    } else {
+                        this.childNodes[1].setAttribute("src", "assets/img/bola.png");
+                        this.setAttribute("played", playerTwo);
+                        playerTime = playerOne;
+                    }
+                    refreshScreen();
+                    checkWinner();
                 }
-                refreshScreen();
-                checkWinner();
             }
 
         });
@@ -43,30 +46,54 @@ function initGame() {
 }
 
 function checkWinner() {
-    var x1 = document.getElementById("x1").getAttribute("played");
-    var x2 = document.getElementById("x2").getAttribute("played");
-    var x3 = document.getElementById("x3").getAttribute("played");
-
-    var y1 = document.getElementById("y1").getAttribute("played");
-    var y2 = document.getElementById("y2").getAttribute("played");
-    var y3 = document.getElementById("y3").getAttribute("played");
-
-    var z1 = document.getElementById("z1").getAttribute("played");
-    var z2 = document.getElementById("z2").getAttribute("played");
-    var z3 = document.getElementById("z3").getAttribute("played");
 
     var winner = "";
 
-    if ((x1 == y1 && x1 == z1) || (x1 == x2 && x1 == x3) || (x1 == y2 && x1 == z3) && x1 != "") {
-        winner = x1;
-    } else if ((y2 == y1 && y2 == y3) || (y2 == x2 && y2 == z2) || (y2 == x3 && y2 == z1) && y2 != "") {
-        winner = y2;
-    } else if ((z3 == z2 && z2 == z1) || (z3 == x3 && z3 == y3) && y3 != "") {
-        winner = z3;
+    var position = {
+        x1: '',
+        x2: '',
+        x3: '',
+        y1: '',
+        y2: '',
+        y3: '',
+        z1: '',
+        z2: '',
+        z3: '',
+    };
+
+    for (p in position) {
+        position[p] = document.getElementById(p).getAttribute("played");
+    }
+
+    if (((position['x1'] == position['y1'] && position['y1'] == position['z1']) ||
+            (position['x1'] == position['x2'] && position['x2'] == position['x3']) ||
+            (position['x1'] == position['y2'] && position['y2'] == position['z3'])) && (position['x1'] != '')) {
+        winner = position['x1'];
+    } else if (((position['y2'] == position['y1'] && position['y2'] == position['y3']) ||
+            (position['y2'] == position['x3'] && position['x3'] == position['z1']) ||
+            (position['y2'] == position['x2'] && position['x2'] == position['z2'])) && (position['y2'] != '')) {
+        winner = position['y2'];
+    } else if (((position['z3'] == position['z2'] && position['z3'] == position['z1']) ||
+            (position['z3'] == position['x3'] && position['z3'] == position['y3'])) && (position['z3'] != '')) {
+        winner = position['z3'];
     }
 
     if (winner != "") {
         gamerOver = true;
-        console.log("ganhouu" + winner);
+        alert("O VENCEDOR FOI " + winner + "!");
     }
+
+}
+
+function reset() {
+    gamerOver = false;
+    playerTime = playerOne;
+    refreshScreen();
+    var partborder = document.getElementsByClassName("partborder");
+    var imgborder = document.getElementsByClassName("imgborder");
+    for (var i = 0; i < 9; i++) {
+        partborder[i].setAttribute("played", "");
+        imgborder[i].setAttribute("src", "");
+    }
+
 }

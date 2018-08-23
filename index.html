@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/colors.css">
+  <link rel="stylesheet" href="css/modal.css">
+
 </head>
 
 <body>
@@ -23,34 +25,53 @@
   </div>
 
   <div class="container">
-    <div class="titleturn">
+    <div class="titleturn" id="mudar">
       <h3>Vez do jogador</h3>
       <br>
       <div class="turn">
         <img src="" height="25px">
       </div>
     </div>
+
     <div class="board">
-      <div id="x1" class="partborder" played=""></div>
-      <div id="x2" class="partborder" played=""></div>
-      <div id="x3" class="partborder" played=""></div>
+      <div id="x1" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="x2" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="x3" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
 
-      <div id="y1" class="partborder" played=""></div>
-      <div id="y2" class="partborder" played=""></div>
-      <div id="y3" class="partborder" played=""></div>
+      <div id="y1" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="y2" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="y3" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
 
-      <div id="z1" class="partborder" played=""></div>
-      <div id="z2" class="partborder" played=""></div>
-      <div id="z3" class="partborder" played=""></div>
+      <div id="z1" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="z2" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
+      <div id="z3" class="partborder" played="">
+        <img src="" class="imgborder"> </div>
     </div>
-    <div class="reset">
-      <h3>REINICIAR JOGO</h3>
+
+    <!-- <div class="winner">
+      <img src="" height="25px">
+    </div> -->
+
+    <div onclick="reset()">
+      <div class="reset">
+        <img class="imgreset" onclick="reset()" src="assets/img/reset.png">
+        <h3>REINICIAR</h3>
+      </div>
     </div>
 
     <footer class="footer">
       Desenvolvido por:
       <a href="https://herbertcordeiro.github.io/"> Herbert Cordeiro </a>
     </footer>
+
   </div>
   </div>
 
