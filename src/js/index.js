@@ -41,18 +41,10 @@ function initGame() {
                     }
                     refreshScreen();
                     checkWinner();
-                    checkATie(count);
                 }
             }
 
         });
-    }
-}
-
-function checkATie(count) {
-    if (count == 9) {
-        alert("EMPATOU!");
-        gamerOver = true;
     }
 }
 
@@ -95,6 +87,10 @@ function checkWinner() {
         count = 0;
     }
 
+    if (count == 9 && winner != playerOne && winner != playerTwo) {
+        alert("O JOGO EMPATOU!");
+        gamerOver = true;
+    }
 }
 
 function reset() {
@@ -110,9 +106,8 @@ function reset() {
 
 }
 
-function score(){
-    if(gamerOver){
-        if(winner == playerOne){
-        }
+function score() {
+    if (gamerOver) {
+        if (winner == playerOne) {}
     }
 }
