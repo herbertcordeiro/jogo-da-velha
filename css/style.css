@@ -11,6 +11,7 @@
 
 .titleturn {
   text-align: center;
+  font-size: 0.75em;
   color: var(--white);
 }
 
@@ -25,8 +26,8 @@
 .player-1 {
   grid-area: p1;
   color: var(--white);
-  width: 210px;
-  height: 40px;
+  width: 150px;
+  height: 30px;
   background-color: var(--light-gray);
   border-bottom: var(--border-secondary) var(--red);
   justify-self: end;
@@ -35,43 +36,45 @@
 .player-2 {
   grid-area: p2;
   color: var(--white);
-  width: 210px;
-  height: 40px;
+  width: 150px;
+  height: 30px;
   background-color: var(--light-gray);
   border-bottom: var(--border-secondary) var(--white);
 }
 
 .iconplayer {
-  height: 20px;
-  padding: 10px;
+  height: 16px;
+  padding: 5px;
   background-color: var(--light-gray);
 }
 
-.scoreboard {
-  text-align: right;
+.score {
   font-size: 1em;
+  padding: 5px;
+  background-color: var(--light-gray);
   color: var(--white);
+  float: right;
 }
 
 .imgborder {
-  height: 80px;
+  height: 45px;
 }
 
 .board {
   grid-area: main;
-  width: 410px;
+  width: 320px;
   margin-top: 20px;
   justify-self: center;
 }
 
 .imgreset {
   padding: 10px;
-  width: 35px;
+  width: 25px;
 }
 
 .partborder {
-  width: 130px;
-  height: 100px;
+  width: 100px;
+  height: 70px;
   float: left;
   padding-top: 30px;
   text-align: center;
@@ -81,7 +84,7 @@
 .winner,
 .reset {
   text-align: center;
-  font-size: 1em;
+  font-size: 0.75em;
   padding: 20px;
   color: var(--white);
 }
@@ -92,7 +95,7 @@ a:hover,
 a:active,
 a:visited {
   color: var(--white);
-  font-size: 10pt;
+  font-size: 0.75em;
   text-align: center;
   text-decoration: none;
 }

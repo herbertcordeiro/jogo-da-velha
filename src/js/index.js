@@ -2,6 +2,7 @@ const playerOne = "X";
 const playerTwo = "O";
 var playerTime = playerOne;
 var gamerOver = false;
+var count = 0;
 
 refreshScreen();
 initGame();
@@ -31,17 +32,27 @@ function initGame() {
                         this.childNodes[1].setAttribute("src", "assets/img/xis.png");
                         this.setAttribute("played", playerOne);
                         playerTime = playerTwo;
+                        count++;
                     } else {
                         this.childNodes[1].setAttribute("src", "assets/img/bola.png");
                         this.setAttribute("played", playerTwo);
                         playerTime = playerOne;
+                        count++;
                     }
                     refreshScreen();
                     checkWinner();
+                    checkATie(count);
                 }
             }
 
         });
+    }
+}
+
+function checkATie(count) {
+    if (count == 9) {
+        alert("EMPATOU!");
+        gamerOver = true;
     }
 }
 
@@ -81,6 +92,7 @@ function checkWinner() {
     if (winner != "") {
         gamerOver = true;
         alert("O VENCEDOR FOI " + winner + "!");
+        count = 0;
     }
 
 }
@@ -96,4 +108,11 @@ function reset() {
         imgborder[i].setAttribute("src", "");
     }
 
+}
+
+function score(){
+    if(gamerOver){
+        if(winner == playerOne){
+        }
+    }
 }
